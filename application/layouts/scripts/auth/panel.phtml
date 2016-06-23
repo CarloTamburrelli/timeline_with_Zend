@@ -1,0 +1,49 @@
+<?php 
+
+
+
+
+
+
+	if(!$this->IsLog()) {
+
+  echo $this->form->setAction("/");
+  echo $this->msg;
+  echo "<br><a href=\"/\">Home</a>";
+}else {
+        $userInfo = Zend_Auth::getInstance()->getStorage()->read();
+?>
+<div class="panel panel-default" style="height:400px;">
+  <div class="panel-heading">
+    <h3 class="panel-title"><?php echo $userInfo->username; ?></h3>
+  </div>
+  <div class="panel-body">
+  	<?php
+  	if($this->hasAvatar($userInfo->id)) {
+  		?>
+  		<center><img src="/tmp/file-<?php echo $userInfo->id; ?>.jpg" width="100" height="100"></img></center>
+  		<?php
+  	}
+
+  	?>
+    <center><b>Ruolo: </b> <?php echo $userInfo->role; ?> </center><br>
+    <?php echo $this->form_avatar; ?>
+  </div>
+  <div class="panel-footer">	
+  	<center><span> 
+<?php
+  		echo "<a href=\"/logout\">Logout</a> - <a href=\"/\">Home</a>";
+
+if($this->IsAdmin()){
+	echo " - <a href=\"/admin\">Settings</a>";
+}
+ ?>
+	</span></center>
+  </div>
+</div>
+
+<?php
+}
+?>
+
+   

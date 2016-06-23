@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1>Chat with all!</h1>
+</div>
+<ul class="list-group">
+	<?php
+	if($this->comments) {
+		foreach ($this->comments as $comment) {
+		    //echo "<li class=\"list-group-item\">".print_r($comment)."</li>";
+		    echo "<li class=\"list-group-item\">[".$comment['date_created']."]<b><a href=\"user/".$comment['id_user']."\">".$comment['username']."</a>:</b> ".$comment['comment']."</li>";
+		
+		}
+	}
+?>
+<!--  <li class="list-group-item">Cras justo odio</li> -->
+</ul>
+
+<?php
+if($this->IsLog()){
+?>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Type something:</h3>
+  </div>
+  <div class="panel-body">
+   <?php  echo $this->form_comment->setAction("/add"); ?>
+  </div>
+</div>
+
+<?php
+}
+?>

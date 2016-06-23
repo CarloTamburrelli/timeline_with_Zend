@@ -1,0 +1,36 @@
+<?php 
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('Zend Framework Tutorial');
+
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <?php echo $this->headMeta(); ?> 
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/site.css'); ?> 
+</head>
+<body>
+<div class="container">
+    <h1><?php echo $this->escape($this->title); ?></h1>
+    <div class="row">
+	  <div class="col-xs-8">
+    		<?php echo $this->layout()->content; ?>
+	  </div>
+  <div class="col-xs-4">
+    <div class="well" style="min-height:150px">
+	<?php echo $this->render('auth/panel.phtml') ?>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
