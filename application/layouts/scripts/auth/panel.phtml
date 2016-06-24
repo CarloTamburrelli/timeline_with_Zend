@@ -6,14 +6,13 @@
 
 
 	if(!$this->IsLog()) {
-
-  echo $this->form->setAction("/");
-  echo $this->msg;
-  echo "<br><a href=\"/\">Home</a>";
-}else {
+		  echo $this->form->setAction("/");
+		  echo $this->msg;
+		  echo "<br><a href=\"/\">Home</a>";
+	}else {
         $userInfo = Zend_Auth::getInstance()->getStorage()->read();
 ?>
-<div class="panel panel-default" style="height:400px;">
+<div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><?php echo $userInfo->username; ?></h3>
   </div>

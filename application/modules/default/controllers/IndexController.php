@@ -6,9 +6,18 @@ class IndexController extends Prova_Controller_Main
 
     public function indexAction()
     {   
+        Zend_View_Helper_PaginationControl::setDefaultViewPartial('/index/my_pagination.phtml');
+
         $comments = new Default_Model_Comment();
-        //echo "-->".$comments->getallComments()."<--";
-        $this->view->comments = $comments->getAllComments();
+        $paginator = Zend_Paginator::factory($comments->getAllComments());
+        $paginator->setCurrentPageNumber($this->_getParam('page', 1));
+        $paginator->setItemCountPerPage(6);
+
+        // Assign the Paginator object to the view
+        $this->view->comments = $paginator;        
+
+        //$this->view->comments = $comments->getAllComments();
+
         $auth = Zend_Auth::getInstance();
         $form = new Default_Form_Login();
             if(!$auth->hasIdentity()){

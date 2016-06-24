@@ -3,16 +3,18 @@
 </div>
 <ul class="list-group">
 	<?php
-	if($this->comments) {
+	if (is_array($this->comments) || is_object($this->comments)) {
 		foreach ($this->comments as $comment) {
 		    //echo "<li class=\"list-group-item\">".print_r($comment)."</li>";
 		    echo "<li class=\"list-group-item\">[".$comment['date_created']."]<b><a href=\"user/".$comment['id_user']."\">".$comment['username']."</a>:</b> ".$comment['comment']."</li>";
 		
 		}
-	}
+	} 
 ?>
-<!--  <li class="list-group-item">Cras justo odio</li> -->
 </ul>
+
+
+<?php echo $this->comments; ?>
 
 <?php
 if($this->IsLog()){

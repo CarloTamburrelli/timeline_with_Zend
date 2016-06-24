@@ -52,7 +52,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	   	$router = $controller->getRouter();
 	    
 	    //default route
-	  	$router->addRoute('home',new Zend_Controller_Router_Route('/', array('module' => 'default','controller' => 'index', 'action' => 'index')));
+	  	$router->addRoute('home',new Zend_Controller_Router_Route('/:page', array('module' => 'default','controller' => 'index', 'action' => 'index', 'page' => 1)));
 	  	$router->addRoute('exec_comment',new Zend_Controller_Router_Route('/add', array('module' => 'default','controller' => 'index', 'action' => 'add')));
 	  	$router->addRoute('exec_logout',new Zend_Controller_Router_Route('/logout', array('module' => 'default','controller' => 'index', 'action' => 'logout')));
 	  	$router->addRoute('exec_showuser',new Zend_Controller_Router_Route('/user/:id', array('module' => 'default','controller' => 'index', 'action' => 'showuser', 'id' => 0)));
